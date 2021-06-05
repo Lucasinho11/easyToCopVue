@@ -12,17 +12,35 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
+        <div class="div-card">
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-subtitle>NIKE AIR JORDAN 4 RETRO</ion-card-subtitle>
+                    <ion-card-title>MILITARY BLUE</ion-card-title>
+                </ion-card-header>
 
+                <ion-card-content>
+                    <img src="/assets/img/aj4.png"  alt="">
+                    <div>
+                        <a href="#" class="buttons-subs-drop">
+                        S'inscrire
+                        </a>
+                    </div>
+                    
+
+                </ion-card-content>
+            </ion-card>
+        </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent } from '@ionic/vue';
 
 export default  {
   name: 'Drops',
-  components: { IonHeader, IonToolbar, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent }
 }
 </script>
 <style scoped>
@@ -40,76 +58,6 @@ a:link
     margin: 0;
     border-bottom: 2px solid #919191;
   }
-  .pres-drops{
-    background-color: #111111;
-    height: 35vh;
-    padding-top: 10vh;
-}
-.pres-drops > h1{
-    color: #36FFB0;
-    text-align: center;
-    font-weight: bold;
-    font-size: 30px;
-}
-  .drop-date{
-    background-color: #36FFB0;
-    font-weight: bold;
-    font-size: 30px;
-    color: black;
-    border-bottom: 2px solid gray;
-    padding-left: 2%;
-    padding-top:0.1px ;
-}
-.drop >div> h1{
-    padding-left: 2%;
-    font-size: 20px;
-    font-weight: bold;
-    color: black;
-
-}
-.drop >div> p{
-    padding-top: 3%;
-    padding-left: 2%;
-    font-size: 15px;
-    color: black;
-}
-.drop{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    background-color: white;
-    padding-top:20px ;
-    padding-bottom:20px ;
-}
-.img-drop-img{
-    width: 200px;
-}
-.drop-container{
-    height: 85vh;
-    padding-top: 10%;
-}
-.text-drops{
-    padding-left: 2%;
-}
-.img-drop{
-    align-items: center;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-}
-
-
-.text-drops > h1{
-    padding-left: 2%;
-    font-size: 30px;
-    font-weight: bold;
-    color: black;
-}
-.text-drops > p{
-    padding-left: 2%;
-    font-size: 15px;
-    color: black;
-}
 .buttons-subs-drop{
     margin-top: 2vh;
     background-color: #5D19FF;
@@ -119,14 +67,15 @@ a:link
     border-radius: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 15px;
+    font-size: 20px;
 }
-.img-drop > p{
-    font-weight: bold;
-    font-size: 10px;
+div{
+    display: flex;
+    justify-content: center;
 }
-.img-drop-img2{
-    width: 500px;
+.div-card{
+    align-items: center;
+    height: 86vh;
 }
 
 
