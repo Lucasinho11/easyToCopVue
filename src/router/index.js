@@ -23,6 +23,11 @@ const routes= [
         component: () => import('@/views/Drops.vue')
       },
       {
+        path: 'drops/:id',
+        component: () => import('@/views/Drop.vue')
+      },
+
+      {
         path: 'subs',
         component: () => import('@/views/Subs.vue')
       },

@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-tabs>
-      <ion-tab-bar slot="bottom">
+      <ion-tab-bar slot="bottom" class="bg-nav">
         <ion-tab-button tab="actus" href="/tabs/actus">
           <ion-icon :icon="newspaperOutline" />
           <ion-label>Actualités</ion-label>

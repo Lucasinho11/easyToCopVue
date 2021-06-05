@@ -1,7 +1,7 @@
 <template>
   <ion-page>
     <ion-header>
-      <ion-toolbar>
+      <ion-toolbar class="bg-nav2">
           <div class="div-header">
             <div style="width: 10%;"><img src="/assets/img/logo.png" alt="" style="width: 100%"></div>
             <div><h1 style="color: #00FFB4">Infos</h1></div>
@@ -23,11 +23,18 @@ export default  {
 }
 </script>
 <style scoped>
+  a:link 
+{ 
+ text-decoration:none; 
+} 
   .div-header{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    width: 100vw;
+    width: 100%;
+
+    margin: 0;
+    border-bottom: 2px solid #919191;
   }
 </style>

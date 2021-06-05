@@ -6,46 +6,13 @@
       <ion-toolbar class="bg-nav2">
           <div class="div-header">
             <div style="width: 10%;"><img src="/assets/img/logo.png" alt="" style="width: 100%"></div>
-            <div><h1 style="color: #00FFB4">Drops</h1></div>
+            <div><h1 style="color: #00FFB4">AJ4</h1></div>
             <div><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></div>
           </div>      
       </ion-toolbar>
     </ion-header>
     <ion-content>
-        <div class="pres-drops">
-          <h1>Tous les prochains drops</h1>
-        </div>
-        <div class="drop-date">
-            <h1>Samedi 24 Avril</h1>
-        </div>
-        <a href="/tabs/drops/1" >
-            <div class="drop">
-                <div>
-                    <p>NIKE AIR JORDAN 4 RETRO</p>
-                    <h1>MILITARY BLUE</h1>
-                </div>
-                <div class="img-drop">
-                        <img class="img-drop-img" src="/assets/img/aj4.png"  alt="">
-                </div>
-                
-            </div>
-        </a>
-        <div class="drop-date">
-            <h1>Samedi 24 Avril</h1>
-        </div>
-        <a href="/drops/1" >
-            <div class="drop">
-                <div>
-                    <p>NIKE AIR JORDAN 4 RETRO</p>
-                    <h1>MILITARY BLUE</h1>
-                </div>
-                <div class="img-drop">
-                        <img class="img-drop-img" src="/assets/img/aj4.png"  alt="">
-                </div>
-                
-            </div>
-        </a>
-        
+
     </ion-content>
   </ion-page>
 </template>
