@@ -76,7 +76,7 @@ a:link
   .pres-drops{
     background-color: #111111;
     height: 35vh;
-    padding-top: 10vh;
+    padding-top: 12.5vh;
 }
 .pres-drops > h1{
     color: #36FFB0;
@@ -113,9 +113,11 @@ a:link
     background-color: white;
     padding-top:20px ;
     padding-bottom:20px ;
+    padding-right: 10px;
+    padding-left: 10px;
 }
 .img-drop-img{
-    width: 200px;
+    width: 180px;
 }
 .drop-container{
     height: 85vh;

@@ -10,21 +10,60 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-    
-      <ExploreContainer name="Tab 1 page" />
+      <div class="actus-container">
+        <div class="actu">
+            <div class="actu-title">
+                <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
+                <h1>Le retour des Air Jordan 4!</h1>
+            </div>
+            <div class="actu-img">
+                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
+            </div>
+            <div class="actu-more">
+                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
+                
+            </div>
+        </div>
+        <div class="actu">
+            <div class="actu-title">
+                <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
+                <h1>Le retour des Air Jordan 4!</h1>
+            </div>
+            <div class="actu-img">
+                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
+            </div>
+            <div class="actu-more">
+                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
+                
+            </div>
+        </div>
+        <div class="actu">
+            <div class="actu-title">
+                <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
+                <h1>Le retour des Air Jordan 4!</h1>
+            </div>
+            <div class="actu-img">
+                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
+            </div>
+            <div class="actu-more">
+                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
+                
+            </div>
+        </div>
+
+    </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
 import { contact} from 'ionicons/icons';
 
 
 export default  {
   name: 'Actus',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonContent, IonPage },
+  components: { IonHeader, IonToolbar, IonContent, IonPage },
   setup() {
     return {
         contact
@@ -47,4 +86,31 @@ export default  {
     margin: 0;
     border-bottom: 2px solid #919191;
   }
+  .actus-container{
+    display: flex;
+    flex-direction: column;
+  }
+  .actu{
+    display: flex;
+    flex-direction: column;
+    border-bottom: #919191 1px solid;
+  }
+  .img-title-actu{
+    width: 10%;
+  }
+  .actu-title{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 2%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+  }
+    .actu-title > h1{
+      font-size: 20px;
+      padding-left: 2%;
+    }
+    .actu-more{
+      padding-left: 2%;
+    }
 </style>

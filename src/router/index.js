@@ -19,6 +19,10 @@ const routes= [
         component: () => import('@/views/Actus.vue')
       },
       {
+        path: 'actus/:id',
+        component: () => import('@/views/Actu.vue')
+      },
+      {
         path: 'drops',
         component: () => import('@/views/Drops.vue')
       },
