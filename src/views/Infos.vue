@@ -10,20 +10,61 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-    
-      <ExploreContainer name="Tab 1 page" />
+     <div class="all-infos">
+        <ion-card>
+                <ion-card-header>
+                    <h1 style="font-size: 20px; font-weigth: bold; color: black">📍19 rue Yves Toudic 75010 Paris</h1>
+                    <h1 style="font-size: 20px; font-weigth: bold; color: black">✉️contact@ecole-webstart.com</h1>
+                    <h1 style="font-size: 20px; font-weigth: bold; color: black">📞01 42 41 97 76</h1>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <img src="/assets/img/screen.png" alt="" style="width: 100%">
+                </ion-card-content>
+          </ion-card>
+          <ion-card>
+                <ion-card-header>
+                    <ion-card-title>Contactez-nous</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                      <ion-label>Nom</ion-label>
+                      <ion-input placeholder="Lubasinski"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Prénom</ion-label>
+                      <ion-input placeholder="Lucas"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Email</ion-label>
+                      <ion-input placeholder="lucas.lebgdelastreet@gmail.com"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Objet</ion-label>
+                      <ion-input placeholder="Problème de commande"></ion-input>
+                    </ion-item>
+                    <ion-item>
+                      <ion-label>Message</ion-label>
+                      <ion-textarea placeholder="Bonjour, ..."></ion-textarea>
+                    </ion-item>
+                  </ion-list>
+                </ion-card-content>
+          </ion-card>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 <script>
-import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea } from '@ionic/vue';
 export default  {
   name: 'Infos',
-  components: { IonHeader, IonToolbar, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea }
 }
 </script>
 <style scoped>
-  a:link 
+   a:link 
 { 
  text-decoration:none; 
 } 
@@ -37,4 +78,15 @@ export default  {
     margin: 0;
     border-bottom: 2px solid #919191;
   }
+  .all-infos{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+
+div{
+    display: flex;
+    justify-content: center;
+}
 </style>
