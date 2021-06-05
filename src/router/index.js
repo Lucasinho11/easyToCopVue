@@ -36,6 +36,10 @@ const routes= [
         component: () => import('@/views/Subs.vue')
       },
       {
+        path: 'subs/:id',
+        component: () => import('@/views/Sub.vue')
+      },
+      {
         path: 'infos',
         component: () => import('@/views/Infos.vue')
       }

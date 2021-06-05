@@ -10,19 +10,56 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-    
-      <ExploreContainer name="Tab 1 page" />
+      <div class="all-subs">
+        <ion-card>
+                <ion-card-header>
+                    <ion-card-title>Premium</ion-card-title>
+                    <ion-card-subtitle>5,99€/mois</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                  <h1>Inclus:</h1>
+                    <p>-Accès à quelques drops</p>
+                    <div>
+                        <a href="#" class="buttons-subs-drop">
+                        Payer
+                        </a>
+                    </div>
+                    
+
+                </ion-card-content>
+          </ion-card>
+          <ion-card>
+                <ion-card-header>
+                    <ion-card-title>V.I.P</ion-card-title>
+                    <ion-card-subtitle>19,99€/mois</ion-card-subtitle>
+                </ion-card-header>
+
+                <ion-card-content>
+                  <h1>Inclus:</h1>
+                    <p>-Accès à tous les drops</p>
+                    <p>-Gagne une box spéciale annuelle</p>
+                    <div>
+                        <a href="#" class="buttons-subs-drop">
+                        Payer
+                        </a>
+                    </div>
+                    
+
+                </ion-card-content>
+          </ion-card>
+      </div>
     </ion-content>
   </ion-page>
 </template>
 
 <script>
-import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
-import ExploreContainer from '@/components/ExploreContainer.vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent } from '@ionic/vue';
+
 
 export default  {
   name: 'Subs',
-  components: { ExploreContainer, IonHeader, IonToolbar, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent }
 }
 </script>
 <style scoped>
@@ -40,4 +77,25 @@ export default  {
     margin: 0;
     border-bottom: 2px solid #919191;
   }
+  .all-subs{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+  }
+  .buttons-subs-drop{
+    margin-top: 2vh;
+    background-color: #5D19FF;
+    text-align: center;
+    color: white;
+    width: 200px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
+}
+div{
+    display: flex;
+    justify-content: center;
+}
 </style>
