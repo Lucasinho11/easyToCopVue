@@ -30,7 +30,7 @@
 import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
 
 export default  {
-  name: 'Drops',
+  name: 'Home',
   components: { IonHeader, IonToolbar, IonContent, IonPage }
 }
 </script>
