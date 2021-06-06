@@ -12,7 +12,8 @@ const routes= [
     children: [
       {
         path: '',
-        redirect: '/tabs/actus'
+        component: () => import('@/views/Home.vue')
+        
       },
       {
         path: 'actus',
@@ -42,6 +43,10 @@ const routes= [
       {
         path: 'infos',
         component: () => import('@/views/Infos.vue')
+      },
+      {
+        path: 'user',
+        component: () => import('@/views/User.vue')
       }
     ]
   }

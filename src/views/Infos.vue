@@ -5,7 +5,7 @@
           <div class="div-header">
             <div style="width: 10%;"><img src="/assets/img/logo.png" alt="" style="width: 100%"></div>
             <div><h1 style="color: #00FFB4">Infos</h1></div>
-            <div><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></div>
+            <div><a href="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></a></div>
           </div>      
       </ion-toolbar>
     </ion-header>
@@ -49,18 +49,25 @@
                       <ion-label>Message</ion-label>
                       <ion-textarea placeholder="Bonjour, ..."></ion-textarea>
                     </ion-item>
+                    
                   </ion-list>
                 </ion-card-content>
-          </ion-card>
-      </div>
+                <div>
+                <a href="#" class="buttons-subs-drop">
+                        Envoyer
+                </a>
+              </div>
+              </ion-card>
+
+        </div>
     </ion-content>
   </ion-page>
 </template>
 <script>
-import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea } from '@ionic/vue';
+import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea, IonCardTitle } from '@ionic/vue';
 export default  {
   name: 'Infos',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea }
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea, IonCardTitle }
 }
 </script>
 <style scoped>
@@ -82,11 +89,22 @@ export default  {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 100%;
+
   }
 
 div{
     display: flex;
     justify-content: center;
+}
+.buttons-subs-drop{
+    background-color: #5D19FF;
+    margin-bottom: 2%;
+    text-align: center;
+    color: white;
+    width: 200px;
+    border-radius: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    font-size: 20px;
 }
 </style>

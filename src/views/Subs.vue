@@ -5,7 +5,7 @@
           <div class="div-header">
             <div style="width: 10%;"><img src="/assets/img/logo.png" alt="" style="width: 100%"></div>
             <div><h1 style="color: #00FFB4">Abonnements</h1></div>
-            <div><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></div>
+            <div><a href="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></a></div>
           </div>      
       </ion-toolbar>
     </ion-header>
