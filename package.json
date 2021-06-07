@@ -15,7 +15,8 @@
     "@ionic/vue-router": "^5.4.0",
     "core-js": "^3.6.5",
     "vue": "^3.0.0-0",
-    "vue-router": "^4.0.0-0"
+    "vue-router": "^4.0.0-0",
+    "vue2-google-maps": "^0.10.7"
   },
   "devDependencies": {
     "@capacitor/cli": "3.0.0",

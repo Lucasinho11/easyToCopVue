@@ -5,14 +5,14 @@
     <ion-header>
       <ion-toolbar class="bg-nav2">
           <div class="div-header">
-            <div style="width: 10%;"><img src="/assets/img/logo.png" alt="" style="width: 100%"></div>
+            <div style="width: 10%;"><a href="/"><img src="/assets/img/logo.png" alt="" style="width: 100%"></a></div>
             <div><h1 style="color: #00FFB4">AJ4</h1></div>
             <div><a href="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></a></div>
           </div>      
       </ion-toolbar>
     </ion-header>
     <ion-content>
-        <div class="div-card">
+        <div class="div-card" v-if="!register">
             <ion-card>
                 <ion-card-header>
                     <ion-card-subtitle>NIKE AIR JORDAN 4 RETRO</ion-card-subtitle>
@@ -22,10 +22,24 @@
                 <ion-card-content>
                     <img src="/assets/img/aj4.png"  alt="">
                     <div>
-                        <a href="#" class="buttons-subs-drop">
+                        <a class="buttons-subs-drop" @click.prevent='registerDrop'>
                         S'inscrire
                         </a>
                     </div>
+                    
+
+                </ion-card-content>
+            </ion-card>
+        </div>
+        <div class="div-card" v-else>
+            <ion-card>
+                <ion-card-header>
+                    <ion-card-title style="text-align:center">Bravo! Vous avez bien été inscrit ✅</ion-card-title>
+                </ion-card-header>
+
+                <ion-card-content>
+                    <img src="/assets/img/aj4.png"  alt="">
+
                     
 
                 </ion-card-content>
@@ -40,7 +54,17 @@ import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, Ion
 
 export default  {
   name: 'Drops',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent }
+  data(){
+    return{
+      register: false
+    }
+  },
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent },
+  methods:{
+    registerDrop(){
+      this.register = true
+    }
+  }
 }
 </script>
 <style scoped>
