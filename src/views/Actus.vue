@@ -11,45 +11,20 @@
     </ion-header>
     <ion-content>
       <div class="actus-container">
-        <div class="actu">
+        <div class="actu" v-for="actu in actus" :key="actu.id">
             <div class="actu-title">
                 <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
-                <h1>Le retour des Air Jordan 4!</h1>
+                <h1>{{actu.name}}</h1>
             </div>
             <div class="actu-img">
-                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
+                <img class="img-actu" :src="actu.img" alt="">
             </div>
             <div class="actu-more">
-                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
+                <router-link :to="{ path: '/tabs/actus/'+ actu.id}"><p>Lire la suite</p></router-link>
                 
             </div>
         </div>
-        <div class="actu">
-            <div class="actu-title">
-                <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
-                <h1>Le retour des Air Jordan 4!</h1>
-            </div>
-            <div class="actu-img">
-                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
-            </div>
-            <div class="actu-more">
-                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
-                
-            </div>
-        </div>
-        <div class="actu">
-            <div class="actu-title">
-                <img class="img-title-actu" src="/assets/img/logo.png"  alt="">
-                <h1>Le retour des Air Jordan 4!</h1>
-            </div>
-            <div class="actu-img">
-                <img class="img-actu" src="/assets/img/wallpaper.jpeg"  alt="">
-            </div>
-            <div class="actu-more">
-                <a href="/tabs/actus/1"><p>Lire la suite</p></a>
-                
-            </div>
-        </div>
+        
 
     </div>
     </ion-content>
@@ -59,6 +34,7 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
 import { contact} from 'ionicons/icons';
+import { mapActions, mapGetters } from 'vuex'
 
 
 export default  {
@@ -68,7 +44,17 @@ export default  {
     return {
         contact
     }
-  }
+    
+  },
+  computed: {
+        ...mapGetters(['actus']),
+    },
+    methods:{
+        ...mapActions(['allActus']),
+    },
+    mounted(){
+        this.allActus()
+    }
 }
 </script>
 <style scoped>

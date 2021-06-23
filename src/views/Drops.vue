@@ -15,47 +15,47 @@
         <div class="pres-drops">
           <h1>Tous les prochains drops</h1>
         </div>
-        <div class="drop-date">
-            <h1>Samedi 24 Avril</h1>
-        </div>
-        <a href="/tabs/drops/1" >
-            <div class="drop">
-                <div>
-                    <p>NIKE AIR JORDAN 4 RETRO</p>
-                    <h1>MILITARY BLUE</h1>
-                </div>
-                <div class="img-drop">
-                        <img class="img-drop-img" src="/assets/img/aj4.png"  alt="">
-                </div>
-                
+        <div v-for="drop in drops" :key="drop.id">
+            <div class="drop-date">
+                <h1>{{drop.dropTime}}</h1>
             </div>
-        </a>
-        <div class="drop-date">
-            <h1>Samedi 24 Avril</h1>
+            <router-link :to="{ path: '/tabs/drops/'+ drop.id}">
+                <div class="drop">
+                    <div>
+                        <p>{{drop.label}}</p>
+                        <h1>{{drop.name}}</h1>
+                    </div>
+                    <div class="img-drop">
+                            <img class="img-drop-img" :src="drop.img"  alt="">
+                    </div>
+                </div>
+            </router-link>
         </div>
-        <a href="/drops/1" >
-            <div class="drop">
-                <div>
-                    <p>NIKE AIR JORDAN 4 RETRO</p>
-                    <h1>MILITARY BLUE</h1>
-                </div>
-                <div class="img-drop">
-                        <img class="img-drop-img" src="/assets/img/aj4.png"  alt="">
-                </div>
-                
-            </div>
-        </a>
+        
+        
         
     </ion-content>
   </ion-page>
 </template>
 
+
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
+import { mapActions, mapGetters } from 'vuex'
 
 export default  {
   name: 'Drops',
-  components: { IonHeader, IonToolbar, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonContent, IonPage },
+  computed: {
+        ...mapGetters(['drops']),
+    },
+    methods:{
+        ...mapActions(['allDrops']),
+    },
+    mounted(){
+        this.allDrops()
+    }
+
 }
 </script>
 <style scoped>

@@ -10,15 +10,16 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-        <div class="div-card">
+        <div class="div-card" v-for="actu in actus" :key="actu.id">
+          <div v-if="actu.id == $route.params.id"></div>
             <ion-card>
                 <ion-card-header>
-                    <ion-card-title>Le retour des Air Jordan 4!</ion-card-title>
+                    <ion-card-title>{{actu.name}}</ion-card-title>
                 </ion-card-header>
 
                 <ion-card-content>
-                    <img src="/assets/img/wallpaper.jpeg"  alt="">
-                    <p>Les air jordan 4 sont de retour pour votre plus grand plaisir!</p>
+                    <img :src="actu.img"  alt="">
+                    <p>{{actu.description}}</p>
                 </ion-card-content>
             </ion-card>
         </div>
@@ -29,7 +30,7 @@
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent,IonCard, IonCardHeader, IonCardTitle, IonCardContent } from '@ionic/vue';
 import { contact} from 'ionicons/icons';
-
+import { mapActions, mapGetters } from 'vuex'
 
 export default  {
   name: 'Actus',
@@ -38,7 +39,16 @@ export default  {
     return {
         contact
     }
-  }
+  },
+  computed: {
+        ...mapGetters(['actus']),
+    },
+    methods:{
+        ...mapActions(['allActus']),
+    },
+    mounted(){
+        this.allActus()
+    }
 }
 </script>
 <style scoped>

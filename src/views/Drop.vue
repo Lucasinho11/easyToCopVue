@@ -12,38 +12,42 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-        <div class="div-card" v-if="!register">
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-subtitle>NIKE AIR JORDAN 4 RETRO</ion-card-subtitle>
-                    <ion-card-title>MILITARY BLUE</ion-card-title>
-                </ion-card-header>
+      <div v-for="drop in drops" :key="drop.id">
+          <div v-if="drop.id == $route.params.id">
+            <div class="div-card" v-if="!register">
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-subtitle>{{drop.label}}</ion-card-subtitle>
+                        <ion-card-title>{{drop.name}}</ion-card-title>
+                    </ion-card-header>
 
-                <ion-card-content>
-                    <img src="/assets/img/aj4.png"  alt="">
-                    <div>
-                        <a class="buttons-subs-drop" @click.prevent='registerDrop'>
-                        S'inscrire
-                        </a>
-                    </div>
-                    
+                    <ion-card-content>
+                        <img :src="drop.img"  alt="">
+                        <div>
+                            <a class="buttons-subs-drop" @click.prevent='registerDrop'>
+                            S'inscrire
+                            </a>
+                        </div>
+                        
 
-                </ion-card-content>
-            </ion-card>
-        </div>
-        <div class="div-card" v-else>
-            <ion-card>
-                <ion-card-header>
-                    <ion-card-title style="text-align:center">Bravo! Vous avez bien été inscrit ✅</ion-card-title>
-                </ion-card-header>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+            <div class="div-card" v-else>
+                <ion-card>
+                    <ion-card-header>
+                        <ion-card-title style="text-align:center">Bravo! Vous avez bien été inscrit ✅</ion-card-title>
+                    </ion-card-header>
 
-                <ion-card-content>
-                    <img src="/assets/img/aj4.png"  alt="">
+                    <ion-card-content>
+                        <img :src="drop.img"  alt="">
 
-                    
+                        
 
-                </ion-card-content>
-            </ion-card>
+                    </ion-card-content>
+                </ion-card>
+            </div>
+          </div>
         </div>
     </ion-content>
   </ion-page>
@@ -51,6 +55,7 @@
 
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent } from '@ionic/vue';
+import { mapActions, mapGetters } from 'vuex'
 
 export default  {
   name: 'Drops',
@@ -59,11 +64,16 @@ export default  {
       register: false
     }
   },
+  computed: {
+        ...mapGetters(['drops']),
+    },
   components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardSubtitle, IonCardTitle, IonCardContent },
   methods:{
+    ...mapActions(['allDrops']),
     registerDrop(){
       this.register = true
-    }
+    },
+    
   }
 }
 </script>
