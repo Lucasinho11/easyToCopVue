@@ -47,6 +47,14 @@ const routes= [
       {
         path: 'user',
         component: () => import('@/views/User.vue')
+      },
+      {
+        path: 'register',
+        component: () => import('@/views/Register.vue')
+      },
+      {
+        path: 'login',
+        component: () => import('@/views/Login.vue')
       }
     ]
   }

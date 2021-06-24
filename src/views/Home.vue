@@ -5,9 +5,9 @@
     <ion-header>
       <ion-toolbar class="bg-nav2">
           <div class="div-header">
-            <div style="width: 10%;"><a href="/"><img src="/assets/img/logo.png" alt="" style="width: 100%"></a></div>
+            <div style="width: 10%;"><router-link to="/"><img src="/assets/img/logo.png" alt="" style="width: 100%"></router-link></div>
             <div><h1 style="color: #00FFB4">EasyToCop</h1></div>
-            <div><a href="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></a></div>
+            <div><router-link to="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></router-link></div>
           </div>      
       </ion-toolbar>
     </ion-header>
@@ -16,9 +16,9 @@
           <h1>Ne manque plus la paire<br> de tes rêves !</h1>
           <p>Marre de ne pas être sélectionné ?<br>Avec nos services, tu as beaucoup plus de chance de cop ta paire de speakers préférée !</p>
           <div>
-                <a href="/tabs/subs" class="buttons-subs">
+                <router-link to="/tabs/subs" class="buttons-subs">
                         Voir les abonnements
-                </a>
+                </router-link>
             </div>
         </div>
         

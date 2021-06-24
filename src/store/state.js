@@ -4,5 +4,9 @@ export default {
         data: {}
     },
     drops:{},
-    actus:{}
+    actus:{},
+    msg:{
+        error:'',
+        success: ''
+    }
 }

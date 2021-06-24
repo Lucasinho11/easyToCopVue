@@ -2,7 +2,7 @@ import axios from 'axios'
 
 export const login = ({ commit,state }, form) => {
     axios.post(
-        'http://127.0.0.1:8000/api/auth/login',
+        'https://easy2cop.herokuapp.com/api/auth/login',
         {
             email: form.email,
             password: form.password,
@@ -15,23 +15,22 @@ export const login = ({ commit,state }, form) => {
             
             const user = {
                 name: response.data.name,
-                email: response.data.email,
-                created_at: response.data.created_at
+                email: response.data.email
             }
 
             commit('data', user)
             state.msg.success = 'Vous etes connecté'
-            
+            //window.location.href="/tabs/user"
 
        }).catch((error) => {
-        state.msg.error = error
-        console.log(error)
+        state.msg.error = error.response.data.msg
+        console.log(error.response.data.msg)
        }); 
 }
 
 export const register = ({ commit, state }, form) => {
    axios.post(
-    'http://127.0.0.1:8000/api/auth/register',
+    'https://easy2cop.herokuapp.com/api/auth/register',
     {
         name: form.name,
         email: form.email,
@@ -50,10 +49,10 @@ export const register = ({ commit, state }, form) => {
 
             commit('data', user)
             state.msg.success = 'Compte enregsitré'
-           // window.location.href="/login"
+            window.location.href="/tabs/login"
    }).catch((error) => {
-    state.msg.error = error
-    console.log(error)
+    state.msg.error = error.response.data.msg
+    console.log(error.response.data.msg)
    }); 
 }
 
@@ -63,8 +62,8 @@ export const logout = ({ commit, state }) => {
                     return;
                 }
 
-                axios.post(
-                'http://127.0.0.1:8000/api/auth/logout', {}, {
+                axios.get(
+                'https://easy2cop.herokuapp.com/api/auth/logout', {}, {
                     headers: {
                     'Authorization': `Bearer ${token}` 
                 }
@@ -75,8 +74,8 @@ export const logout = ({ commit, state }) => {
                 console.log(error)
                }); 
                commit('token', null);
-    commit('data', {});
-    window.location.href="/"
+            commit('data', {});
+            window.location.href="/"
 }
 export const allDrops = ({commit}) => {
     axios.get('https://easy2cop.herokuapp.com/api/drops')

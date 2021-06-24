@@ -5,64 +5,52 @@
     <ion-header>
       <ion-toolbar class="bg-nav2">
           <div class="div-header">
-            <div style="width: 10%;"><a href="/"><img src="/assets/img/logo.png" alt="" style="width: 100%"></a></div>
+            <div style="width: 10%;"><router-link to="/"><img src="/assets/img/logo.png" alt="" style="width: 100%"></router-link></div>
             <div><h1 style="color: #00FFB4">Mon Compte</h1></div>
-            <div><a href="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></a></div>
+            <div><router-link to="/tabs/user"><i class="fas fa-user-circle" style="font-size: 25px; color:#00FFB4"></i></router-link></div>
           </div>      
       </ion-toolbar>
     </ion-header>
     <ion-content>
-        <div class="all-infos">
-        <ion-card>
-                <ion-card-content>
-                    <ion-list>
-                        <ion-item>
-                            <ion-label>Email</ion-label>
-                            <ion-input type="email" placeholder="lucas.lebgdelastreet@gmail.com"></ion-input>
-                        </ion-item>
-                        <ion-item>
-                            <ion-label>Mot de passe</ion-label>
-                            <ion-input type="password" placeholder="12345"></ion-input>
-                        </ion-item>
-                            <div>
-                                <a href="#" class="buttons-subs-drop">
-                                        Modifier
-                                </a>
-                            </div>                    
-                  </ion-list>
-                </ion-card-content>
-          </ion-card>
+        <div class="all-infos" v-if="user.token">
           <ion-card>
                 <ion-card-header>
-                    <ion-card-title>Mon abonnement</ion-card-title>
+                    <ion-card-title><h1 style="text-align: center">{{user.data.name}}</h1></ion-card-title>
                 </ion-card-header>
 
                 <ion-card-content>
                   <ion-list>
                     <ion-item>
-                        <p>Modifier la méthode de paiement</p>
-                    </ion-item>
-                    <ion-item>
-                        <p>Changer d'abonnement</p>
-                    </ion-item>
-                    <ion-item>
-                        <p>Suspendre l'abonnement</p>
-                    </ion-item>
-                    <ion-item>
-                        <p style="color: red">Annuler l'abonnement</p>
-                    </ion-item>
-                    <ion-item>
-                        <ion-label>Code Promo</ion-label>
-                            <ion-input type="text" placeholder="CLEMENT10"></ion-input>
+                        <p>Modifier l'abonnement</p>
                     </ion-item>
                     <ion-item>
                         <p>Télécharger la facture</p>
                     </ion-item>
+                    <ion-item>
+                        <p style="color: red" @click.prevent="logout">se déconnecter</p>
+                    </ion-item>
+
                     
                   </ion-list>
                 </ion-card-content>
               </ion-card>
 
+        </div>
+        <div class="all-infos" v-else>
+          <ion-card>
+                <ion-card-content>
+                  <ion-list>
+                    <ion-item>
+                        <router-link to="/tabs/register">S'inscrire</router-link>
+                    </ion-item>
+                    <ion-item>
+                        <router-link to="/tabs/login">Se connecter</router-link>
+                    </ion-item>
+
+                    
+                  </ion-list>
+                </ion-card-content>
+              </ion-card>
         </div>
         
     </ion-content>
@@ -71,10 +59,16 @@
 
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent } from '@ionic/vue';
-
+import {mapActions, mapGetters } from 'vuex'
 export default  {
   name: 'User',
-  components: { IonHeader, IonToolbar, IonContent, IonPage }
+  components: { IonHeader, IonToolbar, IonContent, IonPage },
+    computed: {
+        ...mapGetters(['user'])
+    },
+    methods: {
+        ...mapActions(['logout'])
+    }
 }
 </script>
 <style scoped>
@@ -95,7 +89,9 @@ a:link
    .all-infos{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
 
   }
 
