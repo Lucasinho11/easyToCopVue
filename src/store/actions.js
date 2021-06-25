@@ -97,3 +97,24 @@ export const allActus = ({commit}) => {
         }).catch(() => {
         });
 }
+export const sendMail = ({ state }, form) => {
+    axios.post(
+        'https://easy2cop.herokuapp.com/api/mail',
+        {
+            email: form.email,
+            first_name: form.first_name,
+            last_name: form.last_name,
+            object: form.object,
+            msg_email: form.msg_email,
+            device_name: "vue"
+          }
+        ).then((response) => {
+            console.log(response);
+            state.msg.success = response.data.msg
+            //window.location.href="/tabs/user"
+
+       }).catch((error) => {
+        state.msg.error = error.response.data.msg
+        console.log(error.response.data.msg)
+       }); 
+}

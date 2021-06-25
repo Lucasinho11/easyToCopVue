@@ -1,0 +1,18 @@
+{
+    "nom": "EasyToCop",
+    "short_name": "PWA",
+    "start_url": "/",
+    "portée" : "./",
+    "Icônes": [
+        {
+            "src": "./assets/img/logo.png",
+            "tailles": "192x192",
+            "type": "image / png"
+        },
+        {
+            "src": "./assets/img/logo.png",
+            "tailles": "512x512",
+            "type": "image / png"
+        }
+    ]
+}

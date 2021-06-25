@@ -23,40 +23,51 @@
                 </ion-card-content>
           </ion-card>
           <ion-card>
+              <form @submit.prevent="send(form)" method="post">
                 <ion-card-header>
                     <ion-card-title>Contactez-nous</ion-card-title>
+                    <div v-if="msg.success" style="text-align:center">
+                            <p style="color: green">{{msg.success}}</p>
+                    </div>
                 </ion-card-header>
 
                 <ion-card-content>
+                
                   <ion-list>
                     <ion-item>
                       <ion-label>Nom</ion-label>
-                      <ion-input placeholder="Lubasinski"></ion-input>
+                      <ion-input placeholder="Lubasinski" v-model="form.first_name"></ion-input>
                     </ion-item>
                     <ion-item>
                       <ion-label>Prénom</ion-label>
-                      <ion-input placeholder="Lucas"></ion-input>
+                      <ion-input placeholder="Lucas" v-model="form.last_name"></ion-input>
                     </ion-item>
                     <ion-item>
                       <ion-label>Email</ion-label>
-                      <ion-input placeholder="lucas.lebgdelastreet@gmail.com"></ion-input>
+                      <ion-input placeholder="lucas.lebgdelastreet@gmail.com" v-model="form.email"></ion-input>
                     </ion-item>
                     <ion-item>
                       <ion-label>Objet</ion-label>
-                      <ion-input placeholder="Problème de commande"></ion-input>
+                      <ion-input placeholder="Problème de commande" v-model="form.object"></ion-input>
                     </ion-item>
                     <ion-item>
                       <ion-label>Message</ion-label>
-                      <ion-textarea placeholder="Bonjour, ..."></ion-textarea>
+                      <ion-textarea placeholder="Bonjour, ..." v-model="form.msg_email"></ion-textarea>
                     </ion-item>
                     
                   </ion-list>
+                  <div v-if="msg.error" style="text-align:center">
+                        <p style="color: red">{{msg.error}}</p>
+                  </div>
                 </ion-card-content>
                 <div>
-                <a href="#" class="buttons-subs-drop">
+                  <a href="" class="buttons-subs-drop">
+                    <button style="width: 100%; background-color: transparent">
                         Envoyer
-                </a>
-              </div>
+                    </button>   
+                  </a>
+                </div>
+              </form>
               </ion-card>
 
         </div>
@@ -65,9 +76,42 @@
 </template>
 <script>
 import { IonPage, IonHeader, IonToolbar, IonContent, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea, IonCardTitle } from '@ionic/vue';
+import { mapActions, mapGetters } from 'vuex'
 export default  {
   name: 'Infos',
-  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea, IonCardTitle }
+  components: { IonHeader, IonToolbar, IonContent, IonPage, IonCard, IonCardHeader, IonCardContent, IonList, IonItem, IonLabel, IonInput, IonTextarea, IonCardTitle },
+  data(){
+    return{
+      form:{
+        email: '',
+        object: '',
+        first_name: '',
+        last_name: '',
+        msg_email: ''
+      }
+    }
+  },
+  computed: {
+        ...mapGetters(['msg'])
+    },
+    methods: {
+        ...mapActions(['sendMail']),
+        send(form){
+            this.msg.success = ''
+            this.msg.error =''
+            if(this.form.email.length == 0||this.form.object.length == 0||this.form.first_name.length == 0 ||this.form.last_name.length == 0 ||this.form.msg_email.length == 0){
+                this.msg.error='Veuillez remplir tous les champs!'
+            }
+            else{
+                this.sendMail(form)
+            }
+            
+        }
+    },
+    mounted(){
+        this.msg.error =''
+        this.msg.success = ''
+    }
 }
 </script>
 <style scoped>
