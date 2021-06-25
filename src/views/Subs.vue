@@ -21,7 +21,7 @@
                   <h1>Inclus:</h1>
                     <p>-Accès à quelques drops</p>
                     <div>
-                        <a href="#" class="buttons-subs-drop">
+                        <a href="http://easy2cop.herokuapp.com/subs" class="buttons-subs-drop">
                         Payer
                         </a>
                     </div>
@@ -40,8 +40,8 @@
                     <p>-Accès à tous les drops</p>
                     <p>-Gagne une box spéciale annuelle</p>
                     <div>
-                        <a href="#" class="buttons-subs-drop">
-                        Payer
+                        <a href="http://easy2cop.herokuapp.com/subs" class="buttons-subs-drop">
+                          Payer
                         </a>
                     </div>
                     
