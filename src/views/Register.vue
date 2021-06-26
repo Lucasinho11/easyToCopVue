@@ -85,7 +85,8 @@ export default  {
       }
   },
   computed: {
-        ...mapGetters(['msg'])
+        ...mapGetters(['msg']),
+        ...mapGetters(['user'])
     },
     methods: {
         ...mapActions(['register']),

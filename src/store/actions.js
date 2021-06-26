@@ -118,3 +118,22 @@ export const sendMail = ({ state }, form) => {
         console.log(error.response.data.msg)
        }); 
 }
+export const update = ({ state }, form) => {
+    axios.post(
+        'https://easy2cop.herokuapp.com/api/user',
+        {
+            email: form.email,
+            password: form.password,
+            name: form.name,
+            device_name: "vue"
+          }
+        ).then((response) => {
+            console.log(response);
+            state.msg.success = response.data.msg
+            //window.location.href="/tabs/user"
+
+       }).catch((error) => {
+        state.msg.error = error.response.data.msg
+        console.log(error.response.data.msg)
+       }); 
+}
