@@ -11,7 +11,7 @@
     </ion-header>
     <ion-content>
         <div class="div-card" v-for="actu in actus" :key="actu.id">
-          <div v-if="actu.id == $route.params.id"></div>
+          <div v-if="actu.id == $route.params.id">
             <ion-card>
                 <ion-card-header>
                     <ion-card-title>{{actu.name}}</ion-card-title>
@@ -22,6 +22,7 @@
                     <p>{{actu.description}}</p>
                 </ion-card-content>
             </ion-card>
+            </div>
         </div>
     </ion-content>
   </ion-page>
@@ -69,6 +70,5 @@ export default  {
 .div-card{
     display: flex;
     align-items: center;
-    height: 86vh;
 }
 </style>
